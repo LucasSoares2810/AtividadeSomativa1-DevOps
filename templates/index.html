@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <form method="POST">
+        <input type="text" name="task" placeholder="Enter a task">
+        <button type="submit">Add Task</button>
+    </form>
+    <ul>
+        {% for index, task in enumerate(tasks) %}
+            <li>{{ task }} <a href="{{ url_for('delete', task_index=index) }}">[Delete]</a></li>
+        {% endfor %}
+    </ul>
+    <ul>
+    {% for index, task in tasks %}
+        <li>{{ task }} <a href="{{ url_for('delete', task_index=index) }}">[Delete]</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
